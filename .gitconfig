@@ -1,0 +1,8 @@
+[core]
+	editor = vim
+[user]
+	name = Yusuke NISHIOKA
+	email = nishioka@eidos.ic.i.u-tokyo.ac.jp
+[tig "bind"]
+	generic = g move-first-line
+	generic = G move-last-line
