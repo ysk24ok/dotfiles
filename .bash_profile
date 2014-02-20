@@ -4,10 +4,11 @@ fi
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
+export TERM=xterm-256color
 
 # GCC setting
-export CC=llvm-gcc-4.2
-export CXX=llvm-g++-4.2
+export CC=gcc
+export CXX=g++
 export CPPFLAGS="-march=core2 -mtune=core2"
 
 # apachectl setting
@@ -28,5 +29,11 @@ eval "$(rbenv init -)"
 
 # JAVA_HOME path setting
 #export JAVA_HOME=/Library/Java/JavaVirtual/jdk1.7.0_51.jdk/Contents/Home
-export JAVA_HOME="/usr/libexec/java_home"
+#export JAVA_HOME=$(/usr/libexec/java_home -v1.6)
+export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$JAVA_HOME/bin:$PATH
+
+# mpiJava setting
+#export CLASSPATH=/usr/local/etc/mpiJava/1.2.5/lib/classes/mpi
+#export PATH=$PATH:/usr/local/etc/mpiJava/1.2.5/src/scripts
+#export LD_LIBRARY_PATH=/usr/local/etc/mpiJava/1.2.5/lib
