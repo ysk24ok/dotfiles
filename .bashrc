@@ -1,10 +1,12 @@
 # Java alias
 alias javac='javac -J-Dfile.encoding=UTF-8'
+alias java='java -Djava.library.path=/usr/local/lib:~/Documents/Java/Jar'
 
 # Application Shortcuts
 alias safari='open -g -a safari'
 alias chrome='open -g -a chrome'
 alias firefox='open -g -a firefox'
+alias emacs='vim'
 
 # command shortcuts
 alias up='cd ..'
@@ -17,6 +19,7 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lh='ls -h'
 alias llah='ls -lah'
+alias rm='rmtrash'
 
 # Homebrew shortcuts
 alias bin='brew install'
@@ -25,6 +28,8 @@ alias bdoc='brew doctor'
 alias bupd='brew update'
 alias bupg='brew upgrade'
 alias bls='brew list'
+alias bvs='brew versions'
+alias bpr='brew prune'
 
 # svn shortcuts
 alias st='svn st'
@@ -48,6 +53,7 @@ alias gps='git push'
 alias gbr='git branch'
 alias gco='git checkout'
 alias gsta='git stash'
+alias grmt='git remote'
 
 # vagrant shortcuts
 alias vinit='vagrant init'
