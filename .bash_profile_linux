@@ -23,17 +23,7 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lh='ls -h'
 alias llah='ls -lah'
-alias rm='rmtrash'
-
-# Homebrew shortcuts
-alias bin='brew install'
-alias buin='brew uninstall'
-alias bdoc='brew doctor'
-alias bupd='brew update'
-alias bupg='brew upgrade'
-alias bls='brew list'
-alias bvs='brew versions'
-alias bpr='brew prune'
+#alias rm='rmtrash'
 
 # svn shortcuts
 alias st='svn st'

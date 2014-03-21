@@ -1,0 +1,15 @@
+VimClojure
+lightline.vim
+neobundle.vim
+neocomplete.vim
+neosnippet
+nerdtree
+syntastic
+unite.vim
+vim-classpath
+vim-fireplace
+vim-javascript-syntax
+vim-latex
+vim-surround
+vimproc
+vimshell
