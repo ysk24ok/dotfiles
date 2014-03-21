@@ -1,3 +1,7 @@
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
 # Java alias
 alias javac='javac -J-Dfile.encoding=UTF-8'
 alias java='java -Djava.library.path=/usr/local/lib:~/Documents/Java/Jar'
