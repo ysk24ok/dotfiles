@@ -29,5 +29,7 @@ eval "$(rbenv init -)"
 #export JAVA_HOME=/Library/Java/JavaVirtual/jdk1.7.0_51.jdk/Contents/Home
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$JAVA_HOME/bin:$PATH
-export CLASSPATH=$PATH
-export CLASSPATH=$CLASSPATH:~/Documents/TauraLab/Storm:~/Documents/Java/Jar/*
+export CLASSPATH=~/Documents/Java/Jar/*:~/GitHub/tempest/src:~/GitHub/storm/storm-core/target/classes
+
+# Storm setting
+export STORM_HOME=/usr/local
