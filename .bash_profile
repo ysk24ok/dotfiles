@@ -1,3 +1,8 @@
+# automatically read ~/.bashrc
+if [ -f ~/.bashrc ] ; then
+  . ~/.bashrc
+fi
+
 # terminal color setting
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
