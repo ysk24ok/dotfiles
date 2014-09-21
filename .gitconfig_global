@@ -1,0 +1,20 @@
+[core]
+  editor = vim
+  excludesfile = /Users/xxthermidorxx/.gitignore_global
+[user]
+  name = Yusuke NISHIOKA
+  email = maximilianthermidor765@gmail.com
+[color]
+  ui = auto
+[tig "bind"]
+  generic = g move-first-line
+  generic = G move-last-line
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f

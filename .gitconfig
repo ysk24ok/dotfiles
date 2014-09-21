@@ -1,8 +1,11 @@
 [core]
-	editor = vim
+  editor = vim
+  exculdesfile = ~/.gitignore_global
 [user]
-	name = Yusuke NISHIOKA
-	email = nishioka@eidos.ic.i.u-tokyo.ac.jp
+  name = Yusuke NISHIOKA
+  email = nishioka@eidos.ic.i.u-tokyo.ac.jp
+[color]
+  ui = auto
 [tig "bind"]
-	generic = g move-first-line
-	generic = G move-last-line
+  generic = g move-first-line
+  generic = G move-last-line
