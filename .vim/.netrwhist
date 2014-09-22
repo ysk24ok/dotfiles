@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/usr/local/Cellar/storm/0.9.0.1/libexec/conf'
-let g:netrw_dirhist_2='/etc'
-let g:netrw_dirhist_3='/private/var/www/gsskt/cakephp2/app/View/Reports'
-let g:netrw_dirhist_4='/private/var/www/gsskt/cakephp/app/webroot/js'
-let g:netrw_dirhist_5='/private/var/www/gsskt/cakephp2/app/View/Reports'
-let g:netrw_dirhist_6='/private/var/www/gsskt/cakephp2/app/View/Elements'
-let g:netrw_dirhist_7='/private/var/www/gsskt/cakephp2/app/Controller'
