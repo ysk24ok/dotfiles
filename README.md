@@ -1,14 +1,13 @@
 # My dotfiles
 
-Make it comfortable to work everywhere!
+Make it comfortable to work anywhere!
 
 ### Prerequisite
-
-* vim
 * git
 
 ### Install
 ```
 cd ~
 git clone https://github.com/xxthermidorxx/dotfiles.git
+cd dotfiles && ./setup.sh
 ```

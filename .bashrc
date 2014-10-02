@@ -22,11 +22,9 @@ alias firefox='open -g -a firefox'
 alias up='cd ..'
 alias upp='cd ../..'
 alias uppp='cd ../../..'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ls -a'
-alias lla='ls -la'
-alias lh='ls -h'
-alias llah='ls -lah'
+alias lla='ls -lah'
 
 if [ -x "`which rmtrash`" ]; then
   alias rm='rmtrash'
@@ -45,6 +43,8 @@ alias bsch='brew search'
 alias bls='brew list'
 alias bvs='brew versions'
 alias bpr='brew prune'
+alias brm='brew remove'
+alias brmf='brew remove --force'
 
 # svn shortcuts
 alias sst='svn status'

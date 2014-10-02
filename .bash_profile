@@ -19,7 +19,6 @@ export CPPFLAGS="-march=core2 -mtune=core2"
 
 if [ `uname` = "Darwin" ]; then
   source ~/dotfiles/.bash_profile_mac
-  echo " - reloaded .bash_profile for Mac"
 elif [ `uname` = "Linux" ]; then
-  echo " - reloaded .bash_profile for Linux"
+  source ~/dotfiles/.bash_profile_linux
 fi

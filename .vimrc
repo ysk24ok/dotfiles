@@ -74,7 +74,7 @@ let NERDTreeShowHidden = 1      "隠しファイルをデフォルトで表示�
 "<mapleader>nを:NERDTreeにエイリアス
 nnoremap <silent> <Leader>n :NERDTree<CR>
 "デフォルトでツリーを表示させる
-autocmd VimEnter * execute 'NERDTree'
+"autocmd VimEnter * execute 'NERDTree'
 
 
 "----------------------------
