@@ -17,6 +17,9 @@ export CC=gcc
 export CXX=g++
 export CPPFLAGS="-march=core2 -mtune=core2"
 
+# tmux setting
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
 if [ `uname` = "Darwin" ]; then
   source ~/dotfiles/.bash_profile_mac
 elif [ `uname` = "Linux" ]; then

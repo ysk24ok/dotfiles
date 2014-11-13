@@ -19,3 +19,9 @@ export CLASSPATH=~/Documents/Java/Jar/*:~/GitHub/tempest/src:~/GitHub/storm/stor
 
 # Storm setting
 export STORM_HOME=/usr/local
+
+# gcc-cilk setting
+export PATH=/opt/gcc-cilk/bin:$PATH
+export CPATH=/opt/gcc-cilk/bin/include
+export LIBRARY_PATH=/opt/gcc-cilk/lib
+export LD_LIBRARY_PATH=/opt/gcc-cilk/lib

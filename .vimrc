@@ -14,7 +14,9 @@ filetype off
 if has( 'vim_starting' )
     set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
+    NeoBundleFetch 'Shougo/neobundle.vim'
+    call neobundle#end()
 
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
@@ -224,16 +226,17 @@ hi CursorLine gui=underline
 highlight CursorLine ctermbg=black guibg=black
 
 "行末の空白文字の可視化
+"visualize empty spaces at the end of lines
 highlight WhitespaceEOL ctermbg=red guibg=#FF0000
 au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", ' \+$')
 au WinEnter * let w:m1 = matchadd("WhitespaceEOL",  ' \+$')
 
-"visualize tab character
+"visualize tab characters
 highlight TabString cterm=underline ctermbg=red guibg=red
 au BufWinEnter * let w:m2 = matchadd("TabString", '\t')
 au WinEnter * let w:m2 = matchadd("TabString", '\t')
 
-"visualize full-width character
+"visualize full-width characters
 highlight ZenkakuSpace cterm=underline ctermbg=red guibg=#666666
 au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
