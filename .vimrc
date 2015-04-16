@@ -1,11 +1,25 @@
 "----------------------------
-"vim global setting
+" global setting
 "----------------------------
 syntax on
 scriptencoding utf-8
 set t_Co=256
 let mapleader=','
 
+
+"----------------------------
+" binary setting
+"----------------------------
+" URL: http://d.hatena.ne.jp/rdera/20081022/1224682665
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | %!xxd -r | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
 
 "----------------------------
 "NeoBundle setting
@@ -134,15 +148,16 @@ let g:airline#extensions#readonly#enabled=0
 "display tabline
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#tab_nr_type=1
-"let g:airline#extensions#tabline#left_sep='▶︎'
-"let g:airline#extensions#tabline#right_sep='◀︎'
-let g:airline#extensions#tabline#left_alt_sep='>'
-let g:airline#extensions#tabline#right_alt_sep='<'
+let g:airline#extensions#tabline#left_sep="⮀"
+let g:airline#extensions#tabline#right_sep="⮂"
+let g:airline#extensions#tabline#left_alt_sep="⮁"
+let g:airline#extensions#tabline#right_alt_sep="⮃"
 
 let g:Powerline_symbols='fancy'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-
+let g:airline_left_sep="⮀"
+let g:airline_right_sep="⮂"
+let g:airline_left_alt_sep="⮁"
+let g:airline_right_alt_sep="⮃"
 
 "----------------------------
 "latex setting
@@ -158,11 +173,12 @@ au BufRead, BufNewFile *.md set filetype=markdown
 
 
 "----------------------------
-"vim-jp/cpp-vim setting
+"syntastic setting
 "http://vim-jp.org/blog/2012/06/14/vim-jp-become-maintenar-of-cpp-vim.html
 "----------------------------
 NeoBundle 'vim-jp/cpp-vim'
 let g:syntastic_cpp_compiler='-std=c++11'
+let g:syntastic_python_checkers=['pyflakes', 'pep8']
 
 
 "----------------------------
