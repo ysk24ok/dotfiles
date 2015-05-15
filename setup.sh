@@ -23,15 +23,15 @@ function main() {
   echo "Now executing setup script ..."
 
   # bash setting
-  cp ./.bash_profile_global ~/.bash_profile
-  cp ./.bashrc_global ~/.bashrc
+  cp ./bash_profile_global ~/.bash_profile
+  cp ./bashrc_global ~/.bashrc
   source ~/.bashrc
   source ~/.bash_profile
   echo " - copied and reloaded .bashrc and .bash_profile"
 
   # git setting
-  cp ./.gitconfig_global ~/.gitconfig
-  cp ./.gitignore_global ~/.gitignore_global
+  cp ./gitconfig ~/.gitconfig
+  cp ./gitignore_global ~/.gitignore_global
   echo " - copied .gitconfig and .gitignore"
 
   # vim setting
@@ -48,7 +48,7 @@ function main() {
     echo " - cloned Shougo/vimproc and executed make"
   fi
 
-  cp ./.vimrc_global ~/.vimrc
+  cp ./vimrc_global ~/.vimrc
   vim ~/.vimrc    # run :NeoBundleInstall here and reload
   echo " - reloaded .vimrc"
 
