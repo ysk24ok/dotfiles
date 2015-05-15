@@ -2,17 +2,6 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-# clang alias
-if [ -x "`which clang`" ]; then
-  alias clang++='clang++ -std=c++11 -stdlib=libc++'
-fi
-
-# Java alias
-if [ -x "`which java`" ]; then
-  alias javac='javac -J-Dfile.encoding=UTF-8'
-  alias java='java -Djava.library.path=/usr/local/lib'
-fi
-
 # Application Shortcuts
 alias safari='open -g -a safari'
 alias chrome='open -g -a chrome'
@@ -25,13 +14,6 @@ alias uppp='cd ../../..'
 alias ll='ls -lh'
 alias la='ls -a'
 alias lla='ls -lah'
-
-if [ -x "`which rmtrash`" ]; then
-  alias rm='rmtrash'
-else
-  alias rm='rm -i'
-  alias delete='rm -rf'
-fi
 
 # Homebrew shortcuts
 alias bin='brew install'
