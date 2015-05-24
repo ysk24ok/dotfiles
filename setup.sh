@@ -34,6 +34,10 @@ function main() {
   cp ./gitignore_global ~/.gitignore_global
   echo " - copied .gitconfig and .gitignore"
 
+  # screenrc setting
+  cp ./screenrc_global ~/.screenrc
+  echo " - copied .screenrc"
+
   # vim setting
   install_command "vim"
   install_command "lua"
