@@ -38,6 +38,10 @@ function main() {
   cp ./screenrc_global ~/.screenrc
   echo " - copied .screenrc"
 
+  # tmux setting
+  co ./tmux.conf ~/.tmux.conf
+  echo " - copied .tmux.conf"
+
   # vim setting
   install_command "vim"
   install_command "lua"
