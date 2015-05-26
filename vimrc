@@ -160,6 +160,12 @@ let g:airline_left_alt_sep="⮁"
 let g:airline_right_alt_sep="⮃"
 
 "----------------------------
+"indentLine setting
+"----------------------------
+NeoBundle 'Yggdroot/indentLine'
+let g:indentLine_color_term = 239
+
+"----------------------------
 "latex setting
 "----------------------------
 NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
