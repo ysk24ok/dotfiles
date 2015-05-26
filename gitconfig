@@ -3,6 +3,7 @@
   excludesfile = ~/.gitignore_global
 [user]
   name = Yusuke NISHIOKA
+  email = yusuke.nishioka.0713@gmail.com
 [color]
   ui = auto
 [tig "bind"]
