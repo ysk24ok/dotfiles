@@ -30,7 +30,6 @@ if has( 'vim_starting' )
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
     NeoBundleFetch 'Shougo/neobundle.vim'
-    call neobundle#end()
 
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
@@ -204,6 +203,8 @@ let vimclojure#DynamicHighlighting = 1
 
 NeoBundle 'tpope/vim-fireplace'
 NeoBundle 'tpope/vim-classpath'
+
+call neobundle#end()
 
 
 "----------------------------
