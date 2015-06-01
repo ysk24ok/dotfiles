@@ -11,9 +11,7 @@ alias firefox='open -g -a firefox'
 alias up='cd ..'
 alias upp='cd ../..'
 alias uppp='cd ../../..'
-alias ll='ls -lh'
-alias la='ls -a'
-alias lla='ls -lah'
+alias ls='ls --color=auto'
 
 # Homebrew shortcuts
 alias bin='brew install'

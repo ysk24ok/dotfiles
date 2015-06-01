@@ -163,6 +163,7 @@ let g:airline_right_alt_sep="⮃"
 "----------------------------
 NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
+let g:indentLine_char = '┊'
 
 "----------------------------
 "latex setting
@@ -268,6 +269,13 @@ au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 "----------------------------
 "edit
 "----------------------------
+au BufNewFile,BufRead *.cpp set noexpandtab tabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.hpp set noexpandtab tabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.py set noexpandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.pl set noexpandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.pm set noexpandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.php set noexpandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
 set tabstop=2         "タブを表示するときの幅
 set shiftwidth=2      "タブを挿入するときの幅
 set softtabstop=2     "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
