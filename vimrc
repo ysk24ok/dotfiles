@@ -269,13 +269,13 @@ au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 "----------------------------
 "edit
 "----------------------------
-au BufNewFile,BufRead *.cpp set noexpandtab tabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.hpp set noexpandtab tabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.py set noexpandtab tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.pl set noexpandtab tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.pm set noexpandtab tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.php set noexpandtab tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.cpp set tabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.hpp set tabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.pl set tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.pm set tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4
 set tabstop=2         "タブを表示するときの幅
 set shiftwidth=2      "タブを挿入するときの幅
 set softtabstop=2     "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
