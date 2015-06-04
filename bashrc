@@ -11,7 +11,13 @@ alias firefox='open -g -a firefox'
 alias up='cd ..'
 alias upp='cd ../..'
 alias uppp='cd ../../..'
-alias ls='ls --color=auto'
+
+case "${OSTYPE}" in
+  darwin*) alias ls="ls -G"      ;;
+  linux*)  alias ls="ls --color" ;;
+esac
+
+#alias ls='ls --color=auto'
 
 # Homebrew shortcuts
 alias bin='brew install'
@@ -84,6 +90,8 @@ alias grba='git rebase --abort'
 alias grbs='git rebase --skip'
 alias gsbmi='git submodule init'
 alias gsbmu='git submodule update'
+alias gtg='git tag'
+alias gtgsorted="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
 
 # vagrant shortcuts
 alias vbl='vagrant box list'
