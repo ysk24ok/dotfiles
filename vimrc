@@ -35,6 +35,7 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'scrooloose/syntastic'
 
 
@@ -164,6 +165,7 @@ let g:airline_right_alt_sep="⮃"
 NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┊'
+let g:indentLine_enabled = 0
 
 "----------------------------
 "latex setting
@@ -229,27 +231,32 @@ set backspace=indent,eol,start  "Backspaceキーの影響範囲に制限を設�
 "----------------------------
 "display
 "----------------------------
-set title          "タイトルをウィンドウ枠に表示する
-set ruler          "カーソルの位置表示
-set number         "行番号表示
-"set cursorcolumn  "カーソル位置のカラムの背景色を変える
-set showmatch      "対応する括弧を強調表示
-"set cmdheight     "メッセージ表示欄を2行確保
-set cursorline     "カーソル行の背景色を変える
-set laststatus=2   "ステータスラインを表示する
+set title           "set title on the window
+set ruler           "show cursor
+set number          "show line number
+set showmatch       "対応する括弧を強調表示
+"set cmdheight=2    "メッセージ表示欄を2行確保
+set laststatus=2    "show statusline
 
-"カレントウィンドウにのみ罫線を引く
+"change the background color of visual
+hi Visual ctermbg=white
+
+"change the background color of current line and column
+hi clear CursorLine
+hi clear CursorColumn
+hi CursorColumn cterm=NONE ctermbg=black guibg=black
+hi CursorLine cterm=NONE ctermbg=black guibg=black
+
+"set cursorline and cursorcolumn only in the current window
 augroup cch
     autocmd! cch
     autocmd WinLeave * set nocursorline
+    autocmd WinLeave * set nocursorcolumn
     autocmd WinEnter,BufRead * set cursorline
+    autocmd WinEnter,BufRead * set cursorcolumn
 augroup END
+hi CursorLineNR cterm=bold
 
-hi clear CursorLine
-hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
-
-"行末の空白文字の可視化
 "visualize empty spaces at the end of lines
 highlight WhitespaceEOL ctermbg=red guibg=#FF0000
 au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", ' \+$')
@@ -274,6 +281,7 @@ au BufNewFile,BufRead *.pl set tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.pm set tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.lua set tabstop=4 shiftwidth=4
 set tabstop=2         "タブを表示するときの幅
 set shiftwidth=2      "タブを挿入するときの幅
 set softtabstop=2     "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
