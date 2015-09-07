@@ -219,6 +219,9 @@ set modelines=0     "CVE-2007-2438
 set mouse=a         "全モードでマウス操作を有効にする
 set vb t_vb=        "ビープ音を鳴らさない
 set clipboard=unnamed,autoselect
+"previewを無効
+"http://kannokanno.hatenablog.com/entry/2013/05/08/110557
+set completeopt=menuone
 
 
 "----------------------------
