@@ -35,7 +35,7 @@ function main() {
   echo " - copied .gitconfig and .gitignore"
 
   # screenrc setting
-  cp ./screenrc_global ~/.screenrc
+  cp ./screenrc ~/.screenrc
   echo " - copied .screenrc"
 
   # tmux setting
