@@ -17,7 +17,7 @@ case "${OSTYPE}" in
   linux*)  alias ls="ls --color" ;;
 esac
 
-#alias ls='ls --color=auto'
+alias grep='grep --color'
 
 # Homebrew shortcuts
 alias bin='brew install'

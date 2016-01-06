@@ -1,1 +1,6 @@
+# Source global definitions
+if [ -f /etc/bsahrc ]; then
+  . /etc/bashrc
+fi
+
 source ~/dotfiles/bashrc

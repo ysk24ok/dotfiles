@@ -39,7 +39,7 @@ function main() {
   echo " - copied .screenrc"
 
   # tmux setting
-  co ./tmux.conf ~/.tmux.conf
+  cp ./tmux.conf ~/.tmux.conf
   echo " - copied .tmux.conf"
 
   # vim setting
