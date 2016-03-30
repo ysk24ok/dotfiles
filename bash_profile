@@ -19,3 +19,7 @@ export CPPFLAGS="-march=core2 -mtune=core2"
 
 # tmux setting
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+# Go setting
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin

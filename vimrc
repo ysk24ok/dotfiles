@@ -170,7 +170,7 @@ let g:indentLine_enabled = 0
 "----------------------------
 "latex setting
 "----------------------------
-NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+NeoBundle 'vim-latex/vim-latex'
 
 
 "----------------------------
@@ -206,6 +206,11 @@ let vimclojure#DynamicHighlighting = 1
 
 NeoBundle 'tpope/vim-fireplace'
 NeoBundle 'tpope/vim-classpath'
+
+"----------------------------
+"Go setting
+"----------------------------
+NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 
@@ -279,19 +284,22 @@ au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 "----------------------------
 "edit
 "----------------------------
-au BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.pl set tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.pm set tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.lua set tabstop=4 shiftwidth=4
-set tabstop=2         "タブを表示するときの幅
-set shiftwidth=2      "タブを挿入するときの幅
-set softtabstop=2     "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set expandtab         "Tabキー押下時やインデントの際、タブ文字ではなく半角スペースが挿入される
-set autoindent        "改行時に前の行のインデントを継続する
-set smartindent       "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-set clipboard=unnamed "クリップボードを連携
+"タブを表示するときの幅
+set tabstop=2
+"タブを挿入するときの幅
+set shiftwidth=2
+"連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set softtabstop=2
+"Tabキー押下時やインデントの際、タブ文字ではなく半角スペースが挿入される
+set expandtab
+"改行時に前の行のインデントを継続する
+set autoindent
+"改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+set smartindent
+"クリップボードを連携
+set clipboard=unnamed
+"各言語用の設定
+au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
 
 "括弧・クォーテーションの自動補完
 inoremap { {}<Left>
