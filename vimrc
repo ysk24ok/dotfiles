@@ -11,14 +11,14 @@ let mapleader=','
 " binary setting
 "----------------------------
 " URL: http://d.hatena.ne.jp/rdera/20081022/1224682665
-augroup BinaryXXD
-  autocmd!
-  autocmd BufReadPre  *.bin let &binary =1
-  autocmd BufReadPost * if &binary | silent %!xxd -g 1
-  autocmd BufReadPost * set ft=xxd | endif
-  autocmd BufWritePre * if &binary | %!xxd -r | endif
-  autocmd BufWritePost * if &binary | silent %!xxd -g 1
-  autocmd BufWritePost * set nomod | endif
+augroup BinarySetting
+    autocmd!
+    autocmd BufReadPre  *.bin let &binary =1
+    autocmd BufReadPost * if &binary | silent %!xxd -g 1
+    autocmd BufReadPost * set ft=xxd | endif
+    autocmd BufWritePre * if &binary | %!xxd -r | endif
+    autocmd BufWritePost * if &binary | silent %!xxd -g 1
+    autocmd BufWritePost * set nomod | endif
 augroup END
 
 "----------------------------
@@ -256,8 +256,8 @@ hi CursorColumn cterm=NONE ctermbg=black guibg=black
 hi CursorLine cterm=NONE ctermbg=black guibg=black
 
 "set cursorline and cursorcolumn only in the current window
-augroup cch
-    autocmd! cch
+augroup CursorLineColumnSetting
+    autocmd!
     autocmd WinLeave * set nocursorline
     autocmd WinLeave * set nocursorcolumn
     autocmd WinEnter,BufRead * set cursorline
@@ -299,7 +299,11 @@ set smartindent
 "クリップボードを連携
 set clipboard=unnamed
 "各言語用の設定
-au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
+augroup FileTypeSetting
+    autocmd!
+    autocmd BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
+    autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4
+augroup END
 
 "括弧・クォーテーションの自動補完
 inoremap { {}<Left>
