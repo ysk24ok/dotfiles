@@ -23,24 +23,44 @@ function main() {
   echo "Now executing setup script ..."
 
   # bash setting
-  cp ./bash_profile_global ~/.bash_profile
-  cp ./bashrc_global ~/.bashrc
+  if [ ! -e ~/.bashrc ]; then
+    cp ./bashrc_global ~/.bashrc
+    echo " - copied bashrc_global"
+  fi
+  if [ ! -e ~/.bash_profile ]; then
+    cp ./bash_profile_global ~/.bash_profile
+    echo " - copied bash_profile_global"
+  fi
+  if [ ! -e ~/.bash_logout ]; then
+    cp ./bash_logout_global ~/.bash_logout
+    echo " - copied bash_logout_global"
+  fi
   source ~/.bashrc
   source ~/.bash_profile
-  echo " - copied and reloaded .bashrc and .bash_profile"
+  source ~/.bash_logout
+  echo " - reloaded .bashrc, .bash_profile and .bash_logout"
 
   # git setting
-  cp ./gitconfig ~/.gitconfig
-  cp ./gitignore_global ~/.gitignore_global
-  echo " - copied .gitconfig and .gitignore"
+  if [ ! -e ~/.gitconfig ]; then
+    cp ./gitconfig ~/.gitconfig
+    echo " - copied gitconfig"
+  fi
+  if [ ! -e ~/.gitconfig ]; then
+    cp ./gitignore_global ~/.gitignore_global
+    echo " - copied gitignore_global"
+  fi
 
   # screenrc setting
-  cp ./screenrc ~/.screenrc
-  echo " - copied .screenrc"
+  if [ ! -e ~/.screenrc ]; then
+    cp ./screenrc ~/.screenrc
+    echo " - copied screenrc"
+  fi
 
   # tmux setting
-  cp ./tmux.conf ~/.tmux.conf
-  echo " - copied .tmux.conf"
+  if [ ! -e ~/.tmux.conf ]; then
+    cp ./tmux.conf ~/.tmux.conf
+    echo " - copied tmux.conf"
+  fi
 
   # vim setting
   install_command "vim"
@@ -56,7 +76,10 @@ function main() {
     echo " - cloned Shougo/vimproc and executed make"
   fi
 
-  cp ./vimrc_global ~/.vimrc
+  if [ ! -e ~/.vimrc ]; then
+    cp ./vimrc_global ~/.vimrc
+    echo " - copied vimrc_global"
+  fi
   vim ~/.vimrc    # run :NeoBundleInstall here and reload
   echo " - reloaded .vimrc"
 
