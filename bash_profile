@@ -23,8 +23,4 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-# start ssh-agent when there is no ssh-agent process
-USER=`whoami`
-if [ `ps aux | grep ssh-agent | grep $USER | grep -v grep | wc -l` = 0 ]; then
-  eval `ssh-agent`
-fi
+eval `ssh-agent`
