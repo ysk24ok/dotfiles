@@ -24,6 +24,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # start ssh-agent when there is no ssh-agent process
-if [ `ps aux | grep ssh-agent | grep -v grep | wc -l` = 0 ]; then
+USER=`whoami`
+if [ `ps aux | grep ssh-agent | grep $USER | grep -v grep | wc -l` = 0 ]; then
   eval `ssh-agent`
 fi
