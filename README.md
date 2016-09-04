@@ -8,6 +8,6 @@ Make it comfortable to work anywhere!
 ### Install
 ```
 cd ~
-git clone https://github.com/xxthermidorxx/dotfiles.git
+git clone https://github.com/ysk24ok/dotfiles.git
 cd dotfiles && ./setup.sh
 ```

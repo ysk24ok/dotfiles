@@ -20,70 +20,98 @@ function install_command() {
 
 
 function main() {
-  echo "Now executing setup script ..."
+  echo 'Now executing setup script ...'
 
-  # bash setting
+  # path of dotfiles directory
+  if [ "`uname`" == 'Darwin' ]; then
+    DOTFILES_DIR='~/Documents/Github/dotfiles'
+  elif [ "`uname`" == 'Linux' ]; then
+    DOTFILES_DIR='~/dotfiles'
+  else
+    echo 'This platform is not supported'
+  fi
+
+  # git
+  if [ ! -e ~/.gitconfig ]; then
+    cp ./gitconfig ~/.gitconfig
+    echo ' - gitconfig is copied'
+  else
+    echo ' - gitconfig already exists'
+  fi
+  if [ ! -e ~/.gitignore_global ]; then
+    cp ./gitignore_global ~/.gitignore_global
+    echo ' - gitignore_global is copied'
+  else
+    echo ' - gitignore_global already exists'
+  fi
+
+  # screenrc
+  if [ ! -e ~/.screenrc ]; then
+    cp ./screenrc ~/.screenrc
+    echo ' - screenrc is copied'
+  else
+    echo ' - screenrc already exists'
+  fi
+
+  # tmux
+  if [ ! -e ~/.tmux.conf ]; then
+    cp ./tmux.conf ~/.tmux.conf
+    echo ' - tmux.conf is copied'
+  else
+    echo ' - tmux.conf already exists'
+  fi
+
+  # vim
+  install_command 'vim'
+  # vim-plug
+  if [ ! -e ~/.vim/autoload/plug.vim ]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo ' - vim-plug is installed'
+  fi
+  # .vimrc
+  if [ ! -e ~/.vimrc ]; then
+    echo "source $DOTFILES_DIR/vimrc" > ~/.vimrc
+    echo ' - ~/.vimrc is set'
+  else
+    echo ' - ~/.vimrc already exists'
+  fi
+  vim ~/.vimrc    # run :PlugInstall here and reload
+  echo ' - reloaded .vimrc'
+
+  # anyenv
+  if [ ! -e ~/.anyenv ]; then
+    git clone https://github.com/riywo/anyenv ~/.anyenv > /dev/null 2>&1
+    echo ' - anyenv is cloned'
+  else
+    echo ' - anyenv already exists'
+  fi
+
+  # bash
   if [ ! -e ~/.bashrc ]; then
-    cp ./bashrc_global ~/.bashrc
-    echo " - copied bashrc_global"
+    echo "source $DOTFILES_DIR/bashrc" > ~/.bashrc
+    echo ' - ~/.bashrc is copied'
+  else
+    echo ' - ~/.bashrc already exists'
   fi
   if [ ! -e ~/.bash_profile ]; then
-    cp ./bash_profile_global ~/.bash_profile
-    echo " - copied bash_profile_global"
+    echo "source $DOTFILES_DIR/bash_profile" > ~/.bash_profile
+    echo ' - ~/.bash_profile is copied'
+  else
+    echo ' - ~/.bash_profile already exists'
   fi
   if [ ! -e ~/.bash_logout ]; then
-    cp ./bash_logout_global ~/.bash_logout
-    echo " - copied bash_logout_global"
+    echo "source $DOTFILES_DIR/bash_logout" > ~/.bash_logout
+    echo ' - ~/.bash_logout is copied'
+  else
+    echo ' - ~/.bash_logout already exists'
   fi
   source ~/.bashrc
   source ~/.bash_profile
   source ~/.bash_logout
-  echo " - reloaded .bashrc, .bash_profile and .bash_logout"
+  echo ' - reloaded .bashrc, .bash_profile and .bash_logout'
 
-  # git setting
-  if [ ! -e ~/.gitconfig ]; then
-    cp ./gitconfig ~/.gitconfig
-    echo " - copied gitconfig"
-  fi
-  if [ ! -e ~/.gitconfig ]; then
-    cp ./gitignore_global ~/.gitignore_global
-    echo " - copied gitignore_global"
-  fi
-
-  # screenrc setting
-  if [ ! -e ~/.screenrc ]; then
-    cp ./screenrc ~/.screenrc
-    echo " - copied screenrc"
-  fi
-
-  # tmux setting
-  if [ ! -e ~/.tmux.conf ]; then
-    cp ./tmux.conf ~/.tmux.conf
-    echo " - copied tmux.conf"
-  fi
-
-  # vim setting
-  install_command "vim"
-  install_command "lua"
-
-  if [ ! -e ~/.vim ]; then
-    mkdir -p ~/.vim/bundle
-    git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-    echo " - cloned Shougo/neobundle.vim"
-
-    git clone git://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
-    cd ~/.vim/bundle/vimproc && make && cd ~/dotfiles
-    echo " - cloned Shougo/vimproc and executed make"
-  fi
-
-  if [ ! -e ~/.vimrc ]; then
-    cp ./vimrc_global ~/.vimrc
-    echo " - copied vimrc_global"
-  fi
-  vim ~/.vimrc    # run :NeoBundleInstall here and reload
-  echo " - reloaded .vimrc"
-
-  echo "done!"
+  echo 'done!'
 }
 
 main

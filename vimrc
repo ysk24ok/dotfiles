@@ -1,311 +1,90 @@
-"----------------------------
-" global setting
-"----------------------------
-syntax on
+"-----
+"vim reference
+"-----
+"anti-pattern: http://rbtnn.hateblo.jp/entry/2014/11/30/174749
+"auto-completion: http://daisuzu.hatenablog.com/entry/2015/12/05/002129
+
+"-----
+"base setting
+"-----
+"utf-8
+set encoding=utf-8
 scriptencoding utf-8
+"enable syntax highlight
+syntax on
+"set mapleader
+let g:mapleader=','
+"use 256 colors
 set t_Co=256
-let mapleader=','
-
-
-"----------------------------
-" binary setting
-"----------------------------
-" URL: http://d.hatena.ne.jp/rdera/20081022/1224682665
-augroup BinarySetting
-    autocmd!
-    autocmd BufReadPre  *.bin let &binary =1
-    autocmd BufReadPost * if &binary | silent %!xxd -g 1
-    autocmd BufReadPost * set ft=xxd | endif
-    autocmd BufWritePre * if &binary | %!xxd -r | endif
-    autocmd BufWritePost * if &binary | silent %!xxd -g 1
-    autocmd BufWritePost * set nomod | endif
-augroup END
-
-"----------------------------
-"NeoBundle setting
-"----------------------------
-filetype off
-if has( 'vim_starting' )
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-endif
-call neobundle#begin(expand('~/.vim/bundle/'))
-    NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'scrooloose/syntastic'
-
-
-"----------------------------
-"autocmd setting
-"----------------------------
-filetype indent on
-if has( 'autocmd' )
-    filetype plugin indent on   "ファイルタイプ別インデント、プラグインを有効にする
-    autocmd BufReadPost *       "ファイルの前回閉じた位置を記憶する
-        \if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \endif
-endif
-
-
-"----------------------------
-"unite.vim setting
-"----------------------------
-NeoBundle 'Shougo/unite.vim'
-nnoremap [unite] <Nop>
-nmap <Leader>f [unite]
-nnoremap [unite]u  :<C-u>Unite -no-split<Space>
-nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-nnoremap <silent> [unite]r :<C-u>UniteWithBufferDir file<CR>
-nnoremap <silent> ,vr :UniteResume<CR>
-
-"vinarise
-let g:vinarise_enable_auto_detect = 1
-
-"unite-build map
-nnoremap <silent> ,vb :Unite build<CR>
-nnoremap <silent> ,vcb :Unite build:!<CR>
-nnoremap <silent> ,vch :UniteBuildClearHighlight<CR>
-
-
-"----------------------------
-"vim-surround setting
-"http://vimblog.hatenablog.com/entry/vim_plugin_surround_vim
-"----------------------------
-NeoBundle 'tpope/vim-surround'
-
-
-"----------------------------
-"NERDtree setting
-"----------------------------
-NeoBundle 'scrooloose/nerdtree'
-let NERDTreeShowHidden = 1      "隠しファイルをデフォルトで表示させる
-
-"<mapleader>nを:NERDTreeにエイリアス
-nnoremap <silent> <Leader>n :NERDTree<CR>
-"デフォルトでツリーを表示させる
-"autocmd VimEnter * execute 'NERDTree'
-
-
-"----------------------------
-"vim-over setting
-"http://qiita.com/syui/items/3a1af1301ee197b32a8a
-"----------------------------
-NeoBundle 'osyo-manga/vim-over'
-"<mapleader>mを:OverCommandlineにエイリアス
-nnoremap <silent> <Leader>m :OverCommandLine<CR>
-"カーソル下の単語をハイライト付きで置換
-nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
-"コピーした文字列をハイライト付きで置換
-nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!','g')<CR>!!gI<Left><Left><Left>
-
-
-"----------------------------
-"yankround.vim setting
-"http://qiita.com/syui/items/3a1af1301ee197b32a8a
-"----------------------------
-NeoBundle 'LeafCage/yankround.vim'
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-
-
-"----------------------------
-"neocomplete.vim setting
-"https://github.com/Shougo/neocomplete.vim
-"----------------------------
-NeoBundle 'Shougo/neocomplete.vim'
-let g:neocomplete#enable_at_startup=1     "use neocomplete
-let g:neocomplete#enable_smart_case=1     "use smartcase
-
-hi Pmenu ctermfg=0 ctermbg=255
-hi PmenuSel ctermfg=0 ctermbg=1
-hi PmenuSbar ctermfg=0 ctermbg=255
-
-
-"----------------------------
-"vim-airline setting
-"----------------------------
-NeoBundle 'bling/vim-airline'
-"let g:airline_powerline_fonts=1
-let g:airline_linecolumn_prefix=' '
-let g:airline#extensions#hunks#non_zero_only=1
-let g:airline#extensions#whitespace#enabled=0
-let g:airline#extensions#branch#enabled=0
-let g:airline#extensions#readonly#enabled=0
-
-"display tabline
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#tab_nr_type=1
-let g:airline#extensions#tabline#left_sep="⮀"
-let g:airline#extensions#tabline#right_sep="⮂"
-let g:airline#extensions#tabline#left_alt_sep="⮁"
-let g:airline#extensions#tabline#right_alt_sep="⮃"
-
-let g:Powerline_symbols='fancy'
-let g:airline_left_sep="⮀"
-let g:airline_right_sep="⮂"
-let g:airline_left_alt_sep="⮁"
-let g:airline_right_alt_sep="⮃"
-
-"----------------------------
-"indentLine setting
-"----------------------------
-NeoBundle 'Yggdroot/indentLine'
-let g:indentLine_color_term = 239
-let g:indentLine_char = '┊'
-let g:indentLine_enabled = 0
-
-"----------------------------
-"latex setting
-"----------------------------
-NeoBundle 'vim-latex/vim-latex'
-
-
-"----------------------------
-"markdown setting
-"----------------------------
-NeoBundle 'plasticboy/vim-markdown'
-au BufRead, BufNewFile *.md set filetype=markdown
-
-
-"----------------------------
-"syntastic setting
-"http://vim-jp.org/blog/2012/06/14/vim-jp-become-maintenar-of-cpp-vim.html
-"----------------------------
-NeoBundle 'vim-jp/cpp-vim'
-let g:syntastic_cpp_compiler='-std=c++11'
-let g:syntastic_python_checkers=['pyflakes', 'pep8']
-
-
-"----------------------------
-"javascript setting
-"----------------------------
-NeoBundle 'jelera/vim-javascript-syntax'
-
-
-"----------------------------
-"clojure setting
-"----------------------------
-NeoBundle 'vim-scripts/VimClojure'
-let vimclojure#Wantnailgun = 1
-let vimclojure#HighlightBuiltins = 1
-let vimclojure#ParenRainbow= 1
-let vimclojure#DynamicHighlighting = 1
-
-NeoBundle 'tpope/vim-fireplace'
-NeoBundle 'tpope/vim-classpath'
-
-"----------------------------
-"Go setting
-"----------------------------
-NeoBundle 'fatih/vim-go'
-
-call neobundle#end()
-
-
-"----------------------------
-"base
-"----------------------------
-set nocompatible    "viとの互換性をとらない（vim独自の拡張機能を使う為）
-set encoding=utf8   "エンコーディング設定
-set modelines=0     "CVE-2007-2438
-set mouse=a         "全モードでマウス操作を有効にする
-set vb t_vb=        "ビープ音を鳴らさない
-set clipboard=unnamed,autoselect
-"previewを無効
-"http://kannokanno.hatenablog.com/entry/2013/05/08/110557
+"turn beep off
+set vb t_vb=
+"enable mouse control
+set mouse=a
+"enable backspace delete in INSERT mode
+"equivalent to ':set backspace=indent,eol,start'
+set backspace=2
+"disable preview in autocomplete
 set completeopt=menuone
+"enable modeline
+set modelines=1
+"copy to clipboard
+set clipboard=unnamed,autoselect
 
-
-"----------------------------
-"cursor
-"----------------------------
-set whichwrap=b,s,h,l,<,>,[,]   "行頭行末の左右移動で行をまたぐ
-set backspace=indent,eol,start  "Backspaceキーの影響範囲に制限を設けない
-
-
-"----------------------------
-"display
-"----------------------------
-set title           "set title on the window
-set ruler           "show cursor
-set number          "show line number
-set showmatch       "対応する括弧を強調表示
-"set cmdheight=2    "メッセージ表示欄を2行確保
-set laststatus=2    "show statusline
-
-"change the background color of visual
-hi Visual ctermbg=white
-
+"-----
+"display setting
+"-----
+set laststatus=2
+"set filename on the window
+set title
+"set cursor position
+set ruler
+"set line number
+set number
 "change the background color of current line and column
 hi clear CursorLine
 hi clear CursorColumn
-hi CursorColumn cterm=NONE ctermbg=black guibg=black
 hi CursorLine cterm=NONE ctermbg=black guibg=black
-
-"set cursorline and cursorcolumn only in the current window
-augroup CursorLineColumnSetting
-    autocmd!
-    autocmd WinLeave * set nocursorline
-    autocmd WinLeave * set nocursorcolumn
-    autocmd WinEnter,BufRead * set cursorline
-    autocmd WinEnter,BufRead * set cursorcolumn
-augroup END
-hi CursorLineNR cterm=bold
-
+hi CursorColumn cterm=NONE ctermbg=black guibg=black
+set cursorline
+set cursorcolumn
 "visualize empty spaces at the end of lines
 highlight WhitespaceEOL ctermbg=red guibg=#FF0000
 au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", ' \+$')
 au WinEnter * let w:m1 = matchadd("WhitespaceEOL",  ' \+$')
-
 "visualize tab characters
 highlight TabString cterm=underline ctermbg=red guibg=red
 au BufWinEnter * let w:m2 = matchadd("TabString", '\t')
 au WinEnter * let w:m2 = matchadd("TabString", '\t')
-
 "visualize full-width characters
 highlight ZenkakuSpace cterm=underline ctermbg=red guibg=#666666
 au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
-
-"----------------------------
-"edit
-"----------------------------
-"タブを表示するときの幅
-set tabstop=2
-"タブを挿入するときの幅
-set shiftwidth=2
-"連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set softtabstop=2
-"Tabキー押下時やインデントの際、タブ文字ではなく半角スペースが挿入される
+"-----
+"control setting
+"-----
+"insert half-width space instead of tab
 set expandtab
-"改行時に前の行のインデントを継続する
+"width displayed for tab
+set tabstop=2
+"width inserted for tab
+set shiftwidth=2
+"width moved for tab
+set softtabstop=2
+"continue indent in new line
 set autoindent
-"改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set smartindent
-"クリップボードを連携
-set clipboard=unnamed
-"各言語用の設定
+"settings per filetype
 augroup FileTypeSetting
-    autocmd!
-    autocmd BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
-    autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd!
+  autocmd BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
+  autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufNewFile,BufRead *.md set filetype=markdown
+  autocmd BufNewFile,BufRead *.tt set filetype=html
 augroup END
-
-"括弧・クォーテーションの自動補完
+"autocompletion for quotation and parenthesis
+"use ':set paste' to disable this autocompletion when pasted
+"TODO: disable when there is a word
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap ( ()<Left>
@@ -316,35 +95,63 @@ inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 inoremap '<Enter> ''<Left><CR><ESC><S-o>
 inoremap "<Enter> ""<Left><CR><ESC><S-o>
+"turn paste off always when you leave intert mode
+autocmd InsertLeave * set nopaste
 
-"----------------------------
-"search
-"----------------------------
-set ignorecase        "検索時に小文字と大文字を区別しない
-set smartcase         "検索時に大文字で検索した場合にのみ大文字/小文字を区別する
-set wrapscan          "最後まで検索したら先頭に戻る
-set hlsearch          "検索文字列をハイライトする
-set incsearch         "インクリメンタルサーチを行う
-"set nonincsearch     "インクリメンタルサーチを行わない
-"nnoremap / /\v       "正規表現のメタ文字を\無しで使えるようにする
-"検索文字列のハイライトをEscキー連打で解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+"-----
+"search setting
+"-----
+"distinguish case only when it contains uppercase
+set ignorecase
+set smartcase
+"return to top of the file
+set wrapscan
+"highlight words, and turn highlight off by Esc
+set hlsearch
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+"enable incremental search
+set incsearch
 
+"-----
+"vim-plug
+"https://github.com/junegunn/vim-plug
+"http://qiita.com/jiminko/items/f4b337ab41db751388f7
+"-----
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+"Plug 'osyo-manga/vim-over'
+"Plug 'vim-latex/vim-latex'
+"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+call plug#end()
 
-"----------------------------
-"abbreviation setting
-"----------------------------
-ab Mon Monday
-ab Tue Tuesday
-ab Wed Wednesday
-ab Thu Thursday
-ab Fri Friday
-ab Sat Saturday
-ab Sun Sunday
+"-----
+"syntastic
+"https://github.com/scrooloose/syntastic
+":help syntastic-checkers
+"-----
+let g:syntastic_cpp_compiler_options='-std=c++11'
+let g:syntastic_python_checkers=['pyflakes', 'pep8']
 
-ab Jan January
-ab Feb February
-ab Sep September
-ab Oct October
-ab Nov November
-ab Dec December
+"-----
+"vim-airline
+"https://github.com/vim-airline/vim-airline
+"-----
+"let g:airline_powerline_fonts=1
+"let g:Powerline_symbols='fancy'
+let g:airline_left_sep="⮀"
+let g:airline_right_sep="⮂"
+let g:airline_left_alt_sep="⮁"
+let g:airline_right_alt_sep="⮃"
+let g:airline_linecolumn_prefix=' '
+
+let g:airline#extensions#hunks#non_zero_only=1
+let g:airline#extensions#whitespace#enabled=0
+let g:airline#extensions#branch#enabled=0
+let g:airline#extensions#readonly#enabled=0
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#tab_nr_type=1
+let g:airline#extensions#tabline#left_sep="⮀"
+let g:airline#extensions#tabline#right_sep="⮂"
+let g:airline#extensions#tabline#left_alt_sep="⮁"
+let g:airline#extensions#tabline#right_alt_sep="⮃"
