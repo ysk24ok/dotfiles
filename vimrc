@@ -15,7 +15,9 @@ syntax on
 "set mapleader
 let g:mapleader=','
 "use 256 colors
-set t_Co=256
+"NOTE: &term and &t_Co is automatically set based on environment variable $TERM
+"set term=xterm-256color
+"set t_Co=256
 "turn beep off
 set vb t_vb=
 "enable mouse control
@@ -31,8 +33,26 @@ set modelines=1
 set clipboard=unnamed,autoselect
 
 "-----
+"vim-plug
+"https://github.com/junegunn/vim-plug
+"http://qiita.com/jiminko/items/f4b337ab41db751388f7
+"-----
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'altercation/vim-colors-solarized'
+"Plug 'osyo-manga/vim-over'
+"Plug 'vim-latex/vim-latex'
+"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+call plug#end()
+
+"-----
 "display setting
 "-----
+"set Solarized Dark
+set background=dark
+colorscheme solarized
+"show statusline
 set laststatus=2
 "set filename on the window
 set title
@@ -111,19 +131,6 @@ set hlsearch
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 "enable incremental search
 set incsearch
-
-"-----
-"vim-plug
-"https://github.com/junegunn/vim-plug
-"http://qiita.com/jiminko/items/f4b337ab41db751388f7
-"-----
-call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/syntastic'
-Plug 'bling/vim-airline'
-"Plug 'osyo-manga/vim-over'
-"Plug 'vim-latex/vim-latex'
-"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
-call plug#end()
 
 "-----
 "syntastic
