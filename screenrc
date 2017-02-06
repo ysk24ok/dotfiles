@@ -1,6 +1,7 @@
 autodetach on
 bell_msg "^G"
 altscreen on
+term "screen-256color"
 termcapinfo xterm* ti@:te@
 
 # encoding
