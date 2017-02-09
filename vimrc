@@ -94,11 +94,15 @@ set softtabstop=2
 "continue indent in new line
 set autoindent
 set smartindent
+"open new window to the right or below of the current window
+set splitright
+set splitbelow
 "settings per filetype
 augroup FileTypeSetting
   autocmd!
   autocmd BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
   autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufNewFile,BufRead *.java set tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufNewFile,BufRead *.md set filetype=markdown
   autocmd BufNewFile,BufRead *.tt set filetype=html
 augroup END

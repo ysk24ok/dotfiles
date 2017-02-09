@@ -1,7 +1,20 @@
-autodetach on
+# https://www.gnu.org/software/screen/manual/screen.html
+escape ^Qq
+startup_message off
 bell_msg "^G"
+vbell off
+defscrollback 10000
+# because there is a lag when escape key is pushed in vim
+maptimeout 0
+# setting for caption displayed in lower side of the screen
+caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} [%l] %{=b wb}%y/%m/%d(%D) %{=b wm}%c"
+# automatically detach the session on SIGHUP
+autodetach on
+# enable to open results of commands like less in alternate screen
 altscreen on
+# set TERM environment variable
 term "screen-256color"
+# enable mouse scrolling when detached
 termcapinfo xterm* ti@:te@
 
 # encoding
@@ -9,12 +22,7 @@ defkanji utf-8
 defencoding utf-8
 encoding utf-8 utf-8
 
-# scroll
-defscrollback 10000
-escape ^Rr
-startup_message off
-vbell off
-caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} [%l] %{=b wb}%y/%m/%d(%D) %{=b wm}%c"
+# key bind
 bind n screen
 bind h prev
 bind j next
