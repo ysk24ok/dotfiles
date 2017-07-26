@@ -105,6 +105,9 @@ augroup FileTypeSetting
   autocmd BufNewFile,BufRead *.java set tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufNewFile,BufRead *.md set filetype=markdown
   autocmd BufNewFile,BufRead *.tt set filetype=html
+  autocmd BufNewFile,BufRead *.dig set filetype=yaml
+  autocmd BufNewFile,BufRead *.yml.liquid set filetype=yaml
+  autocmd BufNewFile,BufRead *.tsv set noexpandtab
 augroup END
 "autocompletion for quotation and parenthesis
 "use ':set paste' to disable this autocompletion when pasted
