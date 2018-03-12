@@ -3,42 +3,20 @@
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
-
-# Application Shortcuts
-alias safari='open -g -a safari'
-alias chrome='open -g -a chrome'
-alias firefox='open -g -a firefox'
+uname=`uname`
 
 # command shortcuts
 alias up='cd ..'
 alias upp='cd ../..'
 alias uppp='cd ../../..'
 
-case "${OSTYPE}" in
-  darwin*) alias ls="ls -G"      ;;
-  linux*)  alias ls="ls --color" ;;
-esac
+if [ $uname = Linux ]; then
+  alias ls='ls --color'
+elif [ $uname = Darwin ]; then
+  alias ls='ls -G'
+fi
 
 alias grep='grep --color'
-
-# Homebrew shortcuts
-alias bin='brew install'
-alias buin='brew uninstall'
-alias bdoc='brew doctor'
-alias bupd='brew update'
-alias bupg='brew upgrade'
-alias bsch='brew search'
-alias binf='brew info'
-alias bls='brew list'
-alias bvs='brew versions'
-alias bpr='brew prune'
-alias brm='brew remove'
-alias brmf='brew remove --force'
-alias btp='brew tap'
-alias butp='brew untap'
-alias bln='brew link'
-alias buln='brew unlink'
-alias bswt='brew switch'
 
 # svn shortcuts
 alias sst='svn status'
@@ -97,6 +75,10 @@ alias gsbmu='git submodule update'
 alias gtg='git tag'
 alias gtgsorted="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
 
+# docker shortctuts
+alias drma="docker ps -a -q | xargs docker rm"
+alias drmia="docker images | grep \"^<none>\" | awk '{print \$3}' | xargs docker rmi"
+
 # vagrant shortcuts
 alias vbl='vagrant box list'
 alias vbad='vagrant box add'
@@ -115,6 +97,23 @@ alias vdst='vagrant destroy'
 alias vvbg='vagrant vbguest'
 alias vvbgst='vagrant vbguest --status'
 
-# compass shortcuts
-alias cmpcn='compass compile --output-style nested'
-alias cmpw='compass watch'
+# Homebrew shortcuts
+if [ $uname = Darwin ]; then
+  alias bin='brew install'
+  alias buin='brew uninstall'
+  alias bdoc='brew doctor'
+  alias bupd='brew update'
+  alias bupg='brew upgrade'
+  alias bsch='brew search'
+  alias binf='brew info'
+  alias bls='brew list'
+  alias bvs='brew versions'
+  alias bpr='brew prune'
+  alias brm='brew remove'
+  alias brmf='brew remove --force'
+  alias btp='brew tap'
+  alias butp='brew untap'
+  alias bln='brew link'
+  alias buln='brew unlink'
+  alias bswt='brew switch'
+fi

@@ -1,3 +1,5 @@
 # vim: filetype=sh
 
-eval `ssh-agent -k`
+if [ `uname` = Linux ]; then
+  eval `ssh-agent -k`
+fi

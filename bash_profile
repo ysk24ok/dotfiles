@@ -3,29 +3,25 @@
 if [ -f ~/.bashrc ] ; then
   . ~/.bashrc
 fi
-
-# editor setting
-export BUNDLER_EDITOR=vim
-export EDITOR=vim
+uname=`uname`
 
 # terminal color setting
-export CLICOLOR=1
-export LSCOLORS=DxGxcxdxCxegedabagacad
-
-# GCC setting
-export CC=gcc
-export CXX=g++
-export CPPFLAGS="-march=core2 -mtune=core2"
+if [ $uname = Darwin ]; then
+  export CLICOLOR=1
+  export LSCOLORS=DxGxcxdxCxegedabagacad
+fi
 
 # tmux setting
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # Go setting
-export GOPATH=$HOME/go
+export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
 # ssh-agent setting
-eval `ssh-agent`
+if [ $uname = Linux ]; then
+  eval `ssh-agent`
+fi
 
 # anyenv setting
 export PATH=$HOME/.anyenv/bin:$PATH

@@ -30,7 +30,7 @@ set completeopt=menuone
 "enable modeline
 set modelines=1
 "copy to clipboard
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus,autoselect
 
 "-----
 "vim-plug
@@ -39,9 +39,10 @@ set clipboard=unnamed,autoselect
 "-----
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/syntastic'
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
-"Plug 'osyo-manga/vim-over'
+"Plug 'posva/vim-vue'
+"Plug 'zerowidth/vim-copy-as-rtf'
 "Plug 'vim-latex/vim-latex'
 "Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 call plug#end()
@@ -60,6 +61,8 @@ set title
 set ruler
 "set line number
 set number
+"hide a message in the status line, such as '-- INSERT --'
+"set noshowmode
 "change the background color of current line and column
 hi clear CursorLine
 hi clear CursorColumn
@@ -108,6 +111,7 @@ augroup FileTypeSetting
   autocmd BufNewFile,BufRead *.dig set filetype=yaml
   autocmd BufNewFile,BufRead *.yml.liquid set filetype=yaml
   autocmd BufNewFile,BufRead *.tsv set noexpandtab
+  autocmd FileType vue syntax sync fromstart
 augroup END
 "autocompletion for quotation and parenthesis
 "use ':set paste' to disable this autocompletion when pasted
@@ -117,6 +121,15 @@ inoremap [ []<Left>
 inoremap ( ()<Left>
 inoremap ' ''<Left>
 inoremap " ""<Left>
+inoremap {{ {
+inoremap [[ [
+inoremap (( (
+inoremap '' '
+inoremap "" "
+inoremap {{ {
+inoremap {} {}
+inoremap [] []
+inoremap () ()
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
@@ -145,7 +158,7 @@ set incsearch
 ":help syntastic-checkers
 "-----
 let g:syntastic_cpp_compiler_options='-std=c++11'
-let g:syntastic_python_checkers=['pyflakes', 'pep8']
+let g:syntastic_python_checkers=['flake8']
 
 "-----
 "vim-airline
@@ -169,3 +182,13 @@ let g:airline#extensions#tabline#left_sep="⮀"
 let g:airline#extensions#tabline#right_sep="⮂"
 let g:airline#extensions#tabline#left_alt_sep="⮁"
 let g:airline#extensions#tabline#right_alt_sep="⮃"
+
+"-----
+"lightline.vim
+"https://github.com/itchyny/lightline.vim
+"-----
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+      \ }
+      \ }
