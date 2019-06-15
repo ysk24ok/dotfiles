@@ -2,6 +2,12 @@
 
 DOTFILES_DIR="$(pwd)/$(dirname $0)"
 
+function check_command() {
+  if ! type $1 > /dev/null 2>&1; then
+    echo "'$1' command is not installed"
+    exit 1
+  fi
+}
 
 function main() {
   echo 'Now executing setup script ...'
@@ -87,4 +93,5 @@ function main() {
   echo 'done!'
 }
 
+check_command curl
 main
