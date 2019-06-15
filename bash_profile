@@ -17,7 +17,3 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -
 # Go setting
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
-
-# anyenv setting
-export PATH=$HOME/.anyenv/bin:$PATH
-eval "$(anyenv init -)"

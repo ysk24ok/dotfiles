@@ -58,14 +58,6 @@ function main() {
   vim ~/.vimrc    # run :PlugInstall here and reload
   echo ' - reloaded .vimrc'
 
-  # anyenv
-  if [ ! -e ~/.anyenv ]; then
-    git clone https://github.com/riywo/anyenv ~/.anyenv > /dev/null 2>&1
-    echo ' - anyenv is cloned'
-  else
-    echo ' - anyenv already exists'
-  fi
-
   # bash
   if [ ! -e ~/.bashrc ]; then
     echo "source $DOTFILES_DIR/bashrc" > ~/.bashrc
