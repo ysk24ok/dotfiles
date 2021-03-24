@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR="$(pwd)/$(dirname $0)"
+DOTFILES_DIR="$(realpath $0)"
 
 function check_command() {
   if ! type $1 > /dev/null 2>&1; then
