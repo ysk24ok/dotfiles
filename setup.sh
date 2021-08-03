@@ -49,6 +49,11 @@ function setup_bash() {
   setup_shell_file bash_logout
 }
 
+function setup_zsh() {
+  setup_shell_file zshrc
+  setup_shell_file zprofile
+}
+
 function main() {
   echo 'Now executing setup script ...'
 
@@ -60,6 +65,7 @@ function main() {
   setup_vim
 
   setup_bash
+  setup_zsh
 
   echo 'done!'
 }
