@@ -2,7 +2,7 @@
   editor = vim
   excludesfile = ~/.gitignore_global
 [user]
-  name = Yusuke NISHIOKA
+  name = Yusuke Nishioka
   email = yusuke.nishioka.0713@gmail.com
 [color]
   ui = auto
