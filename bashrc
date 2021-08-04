@@ -3,4 +3,4 @@
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
-source $(dirname $0)/commonrc
+source $(dirname ${BASH_SOURCE[0]})/commonrc
