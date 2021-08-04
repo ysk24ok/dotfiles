@@ -31,6 +31,13 @@ set completeopt=menuone
 set modelines=1
 "copy to clipboard
 set clipboard=unnamedplus,autoselect
+"copy to clipboard using clip.exe in Windows Subsystem for Linux
+if system('uname -a | grep microsoft') != ''
+  augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
+endif
 
 "-----
 "vim-plug
