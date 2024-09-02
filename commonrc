@@ -8,18 +8,18 @@ elif [ $uname = Darwin ]; then
   alias ls='ls -G'
 fi
 
-# command shortcuts
+# command aliases
 alias up='cd ..'
 alias upp='cd ../..'
 alias uppp='cd ../../..'
 
 alias grep='grep --color'
 
-# docker shortctuts
+# docker aliases
 alias drma="docker ps -a -q | xargs docker rm"
 alias drmia="docker images | grep \"^<none>\" | awk '{print \$3}' | xargs docker rmi"
 
-# git shortcuts
+# git aliases
 alias gst='git status'
 alias gad='git add'
 alias gadp='git add -p'
@@ -66,7 +66,7 @@ alias gsbmu='git submodule update'
 alias gtg='git tag'
 alias gtgsorted="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
 
-# Homebrew shortcuts
+# Homebrew aliases
 if [ $uname = Darwin ]; then
   alias bin='brew install'
   alias buin='brew uninstall'
