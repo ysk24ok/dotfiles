@@ -2,10 +2,30 @@
 
 uname=$(uname)
 
+# command aliases per OS
 if [ $uname = Linux ]; then
   alias ls='ls --color'
 elif [ $uname = Darwin ]; then
   alias ls='ls -G'
+
+  # Homebrew aliases
+  alias bin='brew install'
+  alias buin='brew uninstall'
+  alias bdoc='brew doctor'
+  alias bupd='brew update'
+  alias bupg='brew upgrade'
+  alias bsch='brew search'
+  alias binf='brew info'
+  alias bls='brew list'
+  alias bvs='brew versions'
+  alias bpr='brew prune'
+  alias brm='brew remove'
+  alias brmf='brew remove --force'
+  alias btp='brew tap'
+  alias butp='brew untap'
+  alias bln='brew link'
+  alias buln='brew unlink'
+  alias bswt='brew switch'
 fi
 
 # command aliases
@@ -65,24 +85,3 @@ alias gsbmi='git submodule init'
 alias gsbmu='git submodule update'
 alias gtg='git tag'
 alias gtgsorted="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
-
-# Homebrew aliases
-if [ $uname = Darwin ]; then
-  alias bin='brew install'
-  alias buin='brew uninstall'
-  alias bdoc='brew doctor'
-  alias bupd='brew update'
-  alias bupg='brew upgrade'
-  alias bsch='brew search'
-  alias binf='brew info'
-  alias bls='brew list'
-  alias bvs='brew versions'
-  alias bpr='brew prune'
-  alias brm='brew remove'
-  alias brmf='brew remove --force'
-  alias btp='brew tap'
-  alias butp='brew untap'
-  alias bln='brew link'
-  alias buln='brew unlink'
-  alias bswt='brew switch'
-fi
