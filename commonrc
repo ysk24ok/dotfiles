@@ -15,17 +15,6 @@ alias uppp='cd ../../..'
 
 alias grep='grep --color'
 
-# svn shortcuts
-alias sst='svn status'
-alias sstu='svn status -u'
-alias sdi='svn diff'
-alias sad='svn add'
-alias sadf='svn add --force'
-alias sup='svn up'
-alias sci='svn ci'
-alias scim='svn ci -m'
-alias scmm='svn commit -m'
-
 # git shortcuts
 alias gst='git status'
 alias gad='git add'
@@ -76,24 +65,6 @@ alias gtgsorted="git for-each-ref --sort=taggerdate --format='%(authordate:short
 # docker shortctuts
 alias drma="docker ps -a -q | xargs docker rm"
 alias drmia="docker images | grep \"^<none>\" | awk '{print \$3}' | xargs docker rmi"
-
-# vagrant shortcuts
-alias vbl='vagrant box list'
-alias vbad='vagrant box add'
-alias vbrm='vagrant box remove'
-alias vinit='vagrant init'
-alias vssh='vagrant ssh'
-alias vsshc='vagrant ssh-config'
-alias vst='vagrant status'
-alias vup='vagrant up'
-alias vupp='vagrant up --provision'
-alias vhlt='vagrant halt'
-alias vrld='vagrant reload'
-alias vrldp='vagrant reload --provision'
-alias vprv='vagrant provision'
-alias vdst='vagrant destroy'
-alias vvbg='vagrant vbguest'
-alias vvbgst='vagrant vbguest --status'
 
 # Homebrew shortcuts
 if [ $uname = Darwin ]; then
