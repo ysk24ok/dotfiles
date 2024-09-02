@@ -168,29 +168,6 @@ let g:syntastic_cpp_compiler_options='-std=c++11'
 let g:syntastic_python_checkers=['flake8']
 
 "-----
-"vim-airline
-"https://github.com/vim-airline/vim-airline
-"-----
-"let g:airline_powerline_fonts=1
-"let g:Powerline_symbols='fancy'
-let g:airline_left_sep="⮀"
-let g:airline_right_sep="⮂"
-let g:airline_left_alt_sep="⮁"
-let g:airline_right_alt_sep="⮃"
-let g:airline_linecolumn_prefix=' '
-
-let g:airline#extensions#hunks#non_zero_only=1
-let g:airline#extensions#whitespace#enabled=0
-let g:airline#extensions#branch#enabled=0
-let g:airline#extensions#readonly#enabled=0
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#tab_nr_type=1
-let g:airline#extensions#tabline#left_sep="⮀"
-let g:airline#extensions#tabline#right_sep="⮂"
-let g:airline#extensions#tabline#left_alt_sep="⮁"
-let g:airline#extensions#tabline#right_alt_sep="⮃"
-
-"-----
 "lightline.vim
 "https://github.com/itchyny/lightline.vim
 "-----
