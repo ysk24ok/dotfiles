@@ -47,7 +47,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
-Plug 'altercation/vim-colors-solarized'
 "Plug 'posva/vim-vue'
 "Plug 'zerowidth/vim-copy-as-rtf'
 "Plug 'vim-latex/vim-latex'
@@ -57,9 +56,9 @@ call plug#end()
 "-----
 "display setting
 "-----
-"set Solarized Dark
+"use retrobox colorscheme with dark background
 set background=dark
-colorscheme solarized
+colorscheme retrobox
 "show statusline
 set laststatus=2
 "set filename on the window
