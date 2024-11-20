@@ -109,13 +109,10 @@ set splitbelow
 "settings per filetype
 augroup FileTypeSetting
   autocmd!
-  autocmd BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
-  autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufNewFile,BufRead *.cue set tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
+  autocmd BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
   autocmd BufNewFile,BufRead *.java set tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufNewFile,BufRead *.md set filetype=markdown
-  autocmd BufNewFile,BufRead *.tt set filetype=html
-  autocmd BufNewFile,BufRead *.dig set filetype=yaml
-  autocmd BufNewFile,BufRead *.yml.liquid set filetype=yaml
+  autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufNewFile,BufRead *.tsv set noexpandtab
   autocmd FileType vue syntax sync fromstart
 augroup END
