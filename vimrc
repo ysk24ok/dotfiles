@@ -68,7 +68,7 @@ set ruler
 "set line number
 set number
 "hide a message in the status line, such as '-- INSERT --'
-"set noshowmode
+set noshowmode
 "change the background color of current line and column
 hi clear CursorLine
 hi clear CursorColumn
