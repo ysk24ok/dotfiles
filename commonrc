@@ -29,17 +29,15 @@ elif [ $uname = Darwin ]; then
 fi
 
 # command aliases
-alias up='cd ..'
-alias upp='cd ../..'
-alias uppp='cd ../../..'
-
 alias grep='grep --color'
 
 # docker aliases
+alias d="docker"
 alias drma="docker ps -a -q | xargs docker rm"
 alias drmia="docker images | grep \"^<none>\" | awk '{print \$3}' | xargs docker rmi"
 
 # git aliases
+alias g="git"
 alias gst='git status'
 alias gad='git add'
 alias gadp='git add -p'
@@ -54,7 +52,7 @@ alias gft='git fetch --prune'
 alias gfta='git fetch --all --prune'
 alias gpl='git pull'
 alias gplr='git pull --rebase'
-alias glg='git log --graph --stat'
+alias glg='git log --graph --stat --show-signature'
 alias glgp='git log -p --graph --stat'
 alias gdf='git diff'
 alias gdfc='git diff --cached'
@@ -85,3 +83,9 @@ alias gsbmi='git submodule init'
 alias gsbmu='git submodule update'
 alias gtg='git tag'
 alias gtgsorted="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
+
+# kubectl aliases
+alias k="kubectl"
+
+# terraform aliases
+alias tf="terraform"
