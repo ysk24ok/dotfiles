@@ -1,10 +1,4 @@
 "-----
-"vim reference
-"-----
-"anti-pattern: http://rbtnn.hateblo.jp/entry/2014/11/30/174749
-"auto-completion: http://daisuzu.hatenablog.com/entry/2015/12/05/002129
-
-"-----
 "base setting
 "-----
 "utf-8
@@ -42,7 +36,6 @@ endif
 "-----
 "vim-plug
 "https://github.com/junegunn/vim-plug
-"http://qiita.com/jiminko/items/f4b337ab41db751388f7
 "-----
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
