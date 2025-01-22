@@ -34,18 +34,6 @@ if system('uname -a | grep microsoft') != ''
 endif
 
 "-----
-"vim-plug
-"https://github.com/junegunn/vim-plug
-"-----
-call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
-"Plug 'posva/vim-vue'
-"Plug 'zerowidth/vim-copy-as-rtf'
-"Plug 'vim-latex/vim-latex'
-"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
-call plug#end()
-
-"-----
 "display setting
 "-----
 "use retrobox colorscheme with dark background
@@ -146,6 +134,18 @@ set hlsearch
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 "enable incremental search
 set incsearch
+
+"-----
+"vim-plug
+"https://github.com/junegunn/vim-plug
+"-----
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+"Plug 'posva/vim-vue'
+"Plug 'zerowidth/vim-copy-as-rtf'
+"Plug 'vim-latex/vim-latex'
+"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+call plug#end()
 
 "-----
 "lightline.vim
