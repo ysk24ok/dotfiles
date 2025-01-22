@@ -64,8 +64,13 @@ function main() {
 
   setup_vim
 
-  setup_bash
-  setup_zsh
+  if [ $SHELL = "/bin/bash" ]; then
+    setup_bash
+  elif [ $SHELL = "/bin/zsh" ]; then
+    setup_zsh
+  else
+    echo '$SHELL is not /bin/bash nor /bin/zsh' >&2
+  fi
 
   echo 'done!'
 }
