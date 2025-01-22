@@ -37,7 +37,7 @@ function setup_vim() {
   if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
     curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo ' - vim-plug is installed'
+    echo vim-plug is installed
   fi
   setup_file vimrc
   vim $HOME/.vimrc    # run :PlugInstall here and reload
