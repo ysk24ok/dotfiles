@@ -11,7 +11,7 @@ function check_command() {
 
 function setup_file() {
   file=$1
-  dest=~/.$1
+  dest=$HOME/.$1
   if [ ! -e $dest ]; then
     cp $DOTFILES_DIR/$file $dest
     echo $dest is copied.
@@ -22,7 +22,7 @@ function setup_file() {
 
 function setup_shell_file() {
   file=$1
-  dest=~/.$1
+  dest=$HOME/.$1
   if [ ! -e $dest ]; then
     echo source $DOTFILES_DIR/$file > $dest
     source $dest
@@ -34,13 +34,13 @@ function setup_shell_file() {
 
 function setup_vim() {
   # vim-plug
-  if [ ! -e ~/.vim/autoload/plug.vim ]; then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
+    curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     echo ' - vim-plug is installed'
   fi
   setup_file vimrc
-  vim ~/.vimrc    # run :PlugInstall here and reload
+  vim $HOME/.vimrc    # run :PlugInstall here and reload
 }
 
 function setup_bash() {
