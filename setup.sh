@@ -39,8 +39,11 @@ function setup_vim() {
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     echo vim-plug is installed
   fi
-  setup_file vimrc
-  vim $HOME/.vimrc    # run :PlugInstall here and reload
+  cat << EOF > $HOME/.vimrc
+"Comment out the following line and run ':source ~/.vimrc' then ':PlugInstall'.
+"source $DOTFILES_DIR/vimrc
+EOF
+  vim $HOME/.vimrc
 }
 
 function setup_bash() {
