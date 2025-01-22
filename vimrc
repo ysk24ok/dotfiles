@@ -45,7 +45,6 @@ endif
 "http://qiita.com/jiminko/items/f4b337ab41db751388f7
 "-----
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
 "Plug 'posva/vim-vue'
 "Plug 'zerowidth/vim-copy-as-rtf'
@@ -154,14 +153,6 @@ set hlsearch
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 "enable incremental search
 set incsearch
-
-"-----
-"syntastic
-"https://github.com/scrooloose/syntastic
-":help syntastic-checkers
-"-----
-let g:syntastic_cpp_compiler_options='-std=c++11'
-let g:syntastic_python_checkers=['flake8']
 
 "-----
 "lightline.vim
